@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Com'un éclair</h1>
+    <h2>Bienvenue</h2>
+
+
+    <div id="map"><!--ICI CARTE MAPS--></div>
+
+
+    <div id="form">
+        <form id="formulaire">
+            <div>
+                <label for="adress">N° et Nom de la voie :</label>
+                <input type="text" id="name" name="user_name">
+            </div>
+            <div>
+                <label for="cp">CP :</label>
+                <input type="number" id="cp" name="codepostal">
+            </div>
+            <div>
+                <label for="ville">ville :</label>
+                <input type="text" id="ville" name="ville">
+            </div>
+            <div class="button">
+                <button type="button" value="submit" onclick="getAdress">Envoyer l'adresse</button>
+            </div>
+            <div id="geolocMe">
+                <button type="button" onclick="geolocMe()"> Me localiser</button>
+            </div>
+        </form>
+    </div>
+    <div id="glob_account">
+        <div class="account">
+            <a href="">Mon compte</a>
+        </div>
+        <div class="account">
+            <a href="" onclick="formulaire()">Rechercher</a>
+        </div>
+        <div class="account">
+            <a href="">Contribuer</a>
+        </div>
+        <div class="account">
+            <a href="">Autres</a>
+        </div>
+    </div>
+    <ul id="list"></ul>
+{% endblock %}

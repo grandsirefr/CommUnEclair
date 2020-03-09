@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Com1Eclair{% endblock %}</title>
+        {% block javascript %}
+            <script src="{{ asset('js/jquery.js') }}"></script>
+            <script src="{{ asset('js/trieDonnees.js') }}"></script>
+            <script src="{{ asset('js/otherPage.js') }}"></script>
+            <script src="{{ asset('js/print.js') }}"></script>
+            <script src="{{ asset('js/recupDonnees.js') }}"></script>
+            <script src="{{ asset('js/mapGoogle.js') }}"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLA-qS4r_KiDyJ2rSfkFCDdP8mW3LSrX4&libraries=places"></script>
+        {% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascrpits %}
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLA-qS4r_KiDyJ2rSfkFCDdP8mW3LSrX4&callback=initMap"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
