@@ -4,7 +4,12 @@ var borneElecAjax;
 //fonction pour récuperer les bornes electrique environnante
 function getData(coordun,coorddeux){
 
-    borneElecAjax='https://opendata.paris.fr/api/records/1.0/search/?dataset=bornes-de-recharge-pour-vehicules-electriques&rows=130&facet=adresse_cp&facet=adresse_ville&facet=reseau&facet=tarif_general&facet=tarif_autopartage&facet=paiement&facet=puissance_pdc_kw&facet=type_connecteur_pdc&facet=type_courant_pdc&refine.reseau=Belib%27&geofilter.distance='+coordun+'%2C'+coorddeux+'%2C1500';
+    borneElecAjax='https://opendata.paris.fr/api/records/1.0/search/?' +
+        'dataset=bornes-de-recharge-pour-vehicules-electriques&' +
+        'rows=130&facet=adresse_cp&facet=adresse_ville&facet=reseau&' +
+        'facet=tarif_general&facet=tarif_autopartage&facet=paiement&' +
+        'facet=puissance_pdc_kw&facet=type_connecteur_pdc&facet=type_courant_pdc&' +
+        'refine.reseau=Belib%27&geofilter.distance='+coordun+'%2C'+coorddeux+'%2C1500';
     $.get(borneElecAjax,function(data){
     console.log(data);
     browseObject(data);
@@ -64,7 +69,6 @@ function browseObject(data){
     var infos =trieData(data);
     var lenght= infos.length;
     var coordun;
-    var coorddeux;
     var ul= document.getElementById("list");
     
     var utilisateur=0;

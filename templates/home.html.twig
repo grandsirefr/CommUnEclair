@@ -1,21 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Com'un éclair</h1>
-    <h2>Bienvenue</h2>
-
-
+    {% if is_granted('ROLE_ADMIN') %}
+    DASHBOARD ADMIN
+    {% endif %}
     <div id="map"><!--ICI CARTE MAPS--></div>
 
 
-    <div id="form">
+    <div class="form close">
         <form id="formulaire">
             <div>
                 <label for="adress">N° et Nom de la voie :</label>
                 <input type="text" id="name" name="user_name">
             </div>
             <div>
-                <label for="cp">CP :</label>
+                <label for="cp">Code postal :</label>
                 <input type="number" id="cp" name="codepostal">
             </div>
             <div>
@@ -23,26 +22,22 @@
                 <input type="text" id="ville" name="ville">
             </div>
             <div class="button">
-                <button type="button" value="submit" onclick="getAdress">Envoyer l'adresse</button>
+                <button type="button" value="submit" onclick="getAdress;ima closeForm();">Envoyer l'adresse</button>
             </div>
             <div id="geolocMe">
                 <button type="button" onclick="geolocMe()"> Me localiser</button>
             </div>
+            <div class="cross"></div>
         </form>
     </div>
-    <div id="glob_account">
-        <div class="account">
-            <a href="">Mon compte</a>
-        </div>
-        <div class="account">
-            <a href="" onclick="formulaire()">Rechercher</a>
-        </div>
-        <div class="account">
-            <a href="">Contribuer</a>
-        </div>
-        <div class="account">
-            <a href="">Autres</a>
-        </div>
+    <div class="maps-buttons">
+
+            <button type="button" onclick="geolocMe()">Me localiser</button>
+
+
+            <button type="button" class="search">Rechercher</button>
+
     </div>
+
     <ul id="list"></ul>
 {% endblock %}

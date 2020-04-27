@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    DASHBOARD ADMIN
+    <form action="{{ path('admin.search') }}" method="post">
+        <label for="name">Nom du client</label>
+        <input type="text" name="name">
+        <label for="firstname">Prénom</label>
+        <input type="text" name="firstname">
+
+        <input type="submit" value="Rechercher">
+    </form>
+
+    {% if templateData is defined %}
+        {% for user in templateData['users'] %}
+            <a href="/user/{{ user.id}}"><li>{{ user.name }} {{ user.firstname }}</li></a>
+        {% endfor %}
+    {% else %}
+    <p>Aucun client n'as été trouvé</p>
+    {% endif %}
+{% endblock %}

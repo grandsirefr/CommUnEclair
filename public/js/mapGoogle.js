@@ -31,22 +31,16 @@ function placedMarq(coordun,coorddeux,utilisateur){
   else{
     marker = new google.maps.Marker({
     position: {lat:coordun, lng: coorddeux },
-     icon: {path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-            scale: 5,
-           strokeColor : "red"},
     map: map});
     console.log(marker);
   }
  
   
   tabMarker.push(marker);
-  
-  
-  /*var mypoints=new google.maps.LatLng(coordun, coorddeux);
-  console.log(mypoints);
-  bounds.extend(mypoints);*/
+
   
 }
+
 function deleteMarq(tabmarker){
   for(var i=0; i<tabmarker.length;i++){
     //console.log(tabmarker[i]);

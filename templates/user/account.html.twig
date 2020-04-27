@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% if user is defined %}
+        <ul>
+            <li> Name : {{ user.name }}</li>
+            <li> Firstname: {{ user.firstname }}</li>
+            <li> adresse: {{ user.adress }}</li>
+            <li> City: {{ user.city }}</li>
+            <li> anniverssaire: {{ user.birthdate.date }}</li>
+            <li> email: {{ user.email }}</li>
+        </ul>
+    {% endif %}
+{% endblock %}

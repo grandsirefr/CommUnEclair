@@ -20,3 +20,18 @@ window.eqfeed_callback = function(results) {
     });
   }
 };
+
+///////////////////JS FRONT/////////////////////////////////////
+let openform=document.querySelector('.form');
+let buttonSearch = document.querySelector('.search');
+let cross=document.querySelector('.cross');
+console.log(cross);
+buttonSearch.addEventListener('click',function () {
+  openform.classList.toggle('close');
+});
+
+cross.addEventListener('click',closeForm);
+
+function closeForm() {
+  openform.classList.toggle('close');
+}

@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+
         <title>{% block title %}Com1Eclair{% endblock %}</title>
         {% block javascript %}
             <script src="{{ asset('js/jquery.js') }}"></script>
@@ -13,10 +14,43 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLA-qS4r_KiDyJ2rSfkFCDdP8mW3LSrX4&libraries=places"></script>
         {% endblock %}
         {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,900&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         {% endblock %}
     </head>
     <body>
+    <header>
+        <div class="logo">
+            <a href="/"><h1>Com'un Eclair</h1></a>
+        </div>
+        <div id="glob_account">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="account">
+                    <a href='/user/{{ app.user.id }}'>Mon compte</a>
+                </div>
+            {% else %}
+                <div class="account">
+                    <a href="/login">connexion</a>
+                </div>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="account">
+                    <a href="/admin/searchusers">Rechercher un utilisateur</a>
+                </div>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="account">
+                    <a href="/logout">Déconexion</a>
+                </div>
+            {% else %}
+                <div class="account">
+                    <a href="/new">Inscription</a>
+                </div>
+            {% endif %}
+        </div>
+    </header>
+
+
         {% block body %}{% endblock %}
         {% block javascrpits %}
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLA-qS4r_KiDyJ2rSfkFCDdP8mW3LSrX4&callback=initMap"></script>

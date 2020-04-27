@@ -4,27 +4,55 @@
     margin: 0;
     padding: 0;
 }
-html{
+/*html{
     background-color: white;
     text-align: center;
+}*/
+body{
+    background-color: yellow;
+    font-family: 'Raleway', sans-serif;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
     width: 100%;
 }
-
-
-body{
-    width: 100%;
-    height: 100vh;
-    margin: 0 auto;
-    padding: 0;
-    background-color: #A3D166;
-    color: white;
+      .logo{
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+      }
+      .logo a{
+          text-decoration: none;
+          text-transform: uppercase;
+          color: grey;
+          padding: 20px;
+      }
+      #glob_account{
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          margin: 0 auto;
+      }
+/* Menu */
+.account{
+      padding: 20px;
+  }
+.account a{
+      color: black;
+      text-decoration: none;
+  }
+ a:hover{
+    color: darkseagreen;
 }
 
 /*carte et titre*/
 #map{
-    height: 55vh;
-    width: 90%;
-    margin: auto;
+    height: 90vh;
+    width: 100%;
 }
 
 .hide{
@@ -45,7 +73,7 @@ li{
     list-style: none;
 }
 
-#form{
+/*#form{
     width: 50%;
     height: 20vh;
     margin: 2% auto;
@@ -54,24 +82,102 @@ li{
     width: 50%;
     margin: 2% auto;
 }
+*/
 
-.account{
-    border: 1px solid white;
-    padding: 2%;
-    width: 15vh;
-    margin: 1% auto;
-    text-align: center;
-}
-.account a{
-    color: white;
-}
-#glob_account{
-    width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-}
 button{
     width: 100px;
     height: 35px;
+}
+.maps-buttons{
+    position: absolute;
+    top: 90vh;
+    left: 5vw;
+    display: flex;
+    flex-direction: row;
+    min-width: 200px
+}
+.maps-buttons button{
+    background-color: yellow;
+    border: none;
+    width: 50%;
+    cursor: pointer;
+}
+form{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+form > *{
+    width: 400px;
+    margin: 20px;
+}
+
+.form{
+    background-color: yellow;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#formulaire {
+    width: 25vw;
+    min-width: 400px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: larger;
+    font-weight: bolder;
+}
+#formulaire div{
+    display: flex;
+    justify-content: space-between;
+}
+#formulaire button{
+    margin: auto;
+    border: none;
+    width: 100%;
+    border-radius: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+#formulaire button:hover{
+    background-color: darkseagreen;
+}
+.cross{
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.cross:hover{
+    opacity: 1;
+}
+.cross:before , .cross:after{
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+.cross:before{
+    transform: rotate(45deg);
+}
+.cross:after{
+    transform: rotate(-45deg);
+}
+.close{
+    display: none;
 }
